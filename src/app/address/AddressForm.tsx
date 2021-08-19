@@ -188,6 +188,8 @@ class AddressForm extends Component<AddressFormProps & WithLanguageProps> {
         if (fieldName === AUTOCOMPLETE_FIELD_NAME || dateFormFieldNames.indexOf(fieldName) > -1) {
             setFieldValue(fieldName, value);
         }
+
+
         onChange(fieldName, value);
     };
 }
