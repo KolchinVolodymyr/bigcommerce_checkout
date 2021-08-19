@@ -1,6 +1,7 @@
 @import "../ui/Base";
 
-#field_37Input {
+#field_37Input,
+label[for="field_37Input"] {
     display: none;
 }
 
