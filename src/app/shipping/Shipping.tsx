@@ -15,8 +15,7 @@ import { MultiShippingFormValues } from './MultiShippingForm';
 import ShippingForm from './ShippingForm';
 import ShippingHeader from './ShippingHeader';
 import { SingleShippingFormValues } from './SingleShippingForm';
-
-import { browserName, browserVersion } from 'react-device-detect';
+import { browserName } from 'react-device-detect';
 
 export interface ShippingProps {
     isBillingSameAsShipping: boolean;
@@ -165,15 +164,8 @@ class Shipping extends Component<ShippingProps & WithCheckoutShippingProps, Ship
             billingAddress,
             methodId,
         } = this.props;
-
-        try {
-            if(addressValues.customFields) {
-                addressValues.customFields.field_37 = `${browserName}, version: ${browserVersion}`;
-            }
-        } catch (error) {
-             onUnhandledError(error);
-        }
-
+            // @ts-ignore: Object is possibly 'undefined'.
+            addressValues.customFields.field_37 = `${browserName}`;
 
         const updatedShippingAddress = addressValues && mapAddressFromFormValues(addressValues);
         const promises: Array<Promise<CheckoutSelectors>> = [];
