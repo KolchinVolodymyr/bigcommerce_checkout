@@ -16,6 +16,8 @@ import ShippingForm from './ShippingForm';
 import ShippingHeader from './ShippingHeader';
 import { SingleShippingFormValues } from './SingleShippingForm';
 
+import { browserName } from 'react-device-detect';
+
 export interface ShippingProps {
     isBillingSameAsShipping: boolean;
     cartHasChanged: boolean;
@@ -163,6 +165,12 @@ class Shipping extends Component<ShippingProps & WithCheckoutShippingProps, Ship
             billingAddress,
             methodId,
         } = this.props;
+
+      console.log('addressValues', addressValues);
+      console.log('console.log shipping',addressValues.customFields);
+      console.log('browserName', browserName);
+       // addressValues.customFields.field_37 = `${browserName}`;
+        addressValues.customFields.field_37 = `${browserName}`;
 
         const updatedShippingAddress = addressValues && mapAddressFromFormValues(addressValues);
         const promises: Array<Promise<CheckoutSelectors>> = [];
