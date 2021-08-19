@@ -94,6 +94,7 @@ class ShippingAddressForm extends Component<ShippingAddressFormProps & ConnectFo
         const formFieldName = customFormFieldNames.includes(fieldName) ?
             `customFields.${fieldName}` :
             fieldName;
+        //console.log('hello setFieldValue fieldValue', fieldValue);
 
         setFieldValue(`${addressFieldName}.${formFieldName}`, fieldValue);
     };
@@ -104,6 +105,8 @@ class ShippingAddressForm extends Component<ShippingAddressFormProps & ConnectFo
         } = this.props;
 
         onFieldChange(fieldName, value);
+        //console.log('handleChange');
+        //console.log('this', this.setFieldValue);
     };
 
     private handleAutocompleteToggle: (state: { inputValue: string; isOpen: boolean }) => void = ({ isOpen, inputValue }) => {
